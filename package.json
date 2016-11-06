@@ -2,7 +2,7 @@
   "name": "hello-ts",
   "version": "0.1.0",
   "description": "sample typescript project",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "start": "node dist/index.js",
     "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
