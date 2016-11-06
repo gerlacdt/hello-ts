@@ -1,12 +1,4 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-// Controls the font size in pixels.
-    "editor.fontSize": 14,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true,
-        "**/*.js": true
-    }
+    "editor.fontSize": 14
 }
