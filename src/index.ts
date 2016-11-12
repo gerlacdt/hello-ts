@@ -1,17 +1,17 @@
 import * as http from 'http';
-import * as debug from 'debug';
-
+const debug = require('debug')('server');
 import App from './App';
 
-debug('ts-express:server');
 
 const port = normalizePort(process.env.PORT || 3000);
 App.set('port', port);
-
 const server = http.createServer(App);
-server.listen(port);
+// const server = App.listen(port, () => {
+//     debug('listening in callback function');
+// })
 server.on('error', onError);
 server.on('listening', onListening);
+server.listen(port);
 
 function normalizePort(val: number | string): number | string | boolean {
     let port: number = (typeof val === 'string') ? parseInt(val, 10) : val;
@@ -40,5 +40,5 @@ function onError(error: NodeJS.ErrnoException): void {
 function onListening(): void {
     let addr = server.address();
     let bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
-    debug(`Listening on ${bind}`)
+    debug(`Listening on ${bind}`);
 }
