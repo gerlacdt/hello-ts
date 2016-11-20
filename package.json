@@ -4,7 +4,8 @@
   "description": "sample typescript project",
   "main": "",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "DEBUG=server node dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" DEBUG=server \"nodemon dist/index.js\"",
     "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
   },
   "keywords": [],
@@ -26,6 +27,7 @@
     "@types/morgan": "^1.7.32",
     "@types/node": "^6.0.46",
     "chai": "^3.5.0",
-    "chai-http": "^3.0.0"
+    "chai-http": "^3.0.0",
+    "concurrently": "^3.1.0"
   }
 }
