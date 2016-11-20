@@ -30,4 +30,7 @@ node dist/index.js
 
 # run all tests
 npm run test
+
+# run tslint
+npm run lint
 ```

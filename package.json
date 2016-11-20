@@ -6,7 +6,8 @@
   "scripts": {
     "start": "DEBUG=server node dist/index.js",
     "dev": "tsc && concurrently \"tsc -w\" DEBUG=server \"nodemon dist/index.js\"",
-    "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts"
+    "test": "mocha --reporter spec --compilers ts:ts-node/register test/**/*.test.ts",
+    "lint": "tslint --project tsconfig.json || true"
   },
   "keywords": [],
   "author": "gerlacdt",
