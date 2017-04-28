@@ -1,16 +1,10 @@
 ## Prerequisities
 
 ```bash
-npm install -g mocha nodemon
-
-# typescript
-npm install -g typescript@rc ts-node
+# install typescript globally for editor support (lint,formatting)
+npm install -g typescript@2.2.3
 npm install -g tslint
-
-# typescript@rc installs 2.1 (supports async/await and more)
-# https://blogs.msdn.microsoft.com/typescript/2016/11/08/typescript-2-1-rc-better-inference-async-functions-and-more
-# tslint for linting
-# ts-node for running mocha tests without compiling ts files
+npm install -g typescript-formatter
 ```
 
 ## Developing

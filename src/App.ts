@@ -27,6 +27,7 @@ class App {
         message: 'Hello world!'
       });
     });
+
     this.express.use('/', router);
     this.express.use('/api/v1/heroes', HeroRouter);
   }

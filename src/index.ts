@@ -24,16 +24,16 @@ function onError(error: NodeJS.ErrnoException): void {
   if (error.syscall !== 'listen') throw error;
   let bind = (typeof port === 'string') ? 'Pipe ' + port : 'Port ' + port;
   switch (error.code) {
-  case 'EACCES':
-    console.error(`${bind} requires elevated priviliges`);
-    process.exit(1);
-    break;
-  case 'EADDRINUSE':
-    console.log(`${bind} is already in use`);
-    process.exit(1);
-    break;
-  default:
-    throw error;
+    case 'EACCES':
+      console.error(`${bind} requires elevated priviliges`);
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.log(`${bind} is already in use`);
+      process.exit(1);
+      break;
+    default:
+      throw error;
   }
 }
 
