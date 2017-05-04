@@ -1,9 +1,10 @@
-import { Router, Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response, Router } from "express";
 
-const Heroes = require('../../data');
+// tslint:disable-next-line
+const heroes = require("../../data");
 
 export class HeroRouter {
-  router: Router;
+  public router: Router;
 
   constructor() {
     this.router = Router();
@@ -11,30 +12,30 @@ export class HeroRouter {
   }
 
   public getAll(_req: Request, res: Response, _next: NextFunction) {
-    res.json(Heroes);
+    res.json(heroes);
   }
 
   public getOne(req: Request, res: Response, _next: NextFunction) {
-    let query = parseInt(req.params.id);
-    let hero = Heroes.find((hero: any) => hero.id === query);
+    const query = parseInt(req.params.id, 10);
+    const hero = heroes.find((h: any) => h.id === query);
     if (hero) {
       res.status(200)
         .json({
-          message: 'Success',
+          message: "Success",
           status: res.status,
-          hero
+          hero,
         });
     } else {
       res.status(404)
         .json({
-          message: `No hero found with the given id: ${query}`
+          message: `No hero found with the given id: ${query}`,
         });
     }
   }
 
-  init() {
-    this.router.get('/', this.getAll);
-    this.router.get('/:id', this.getOne);
+  public init() {
+    this.router.get("/", this.getAll);
+    this.router.get("/:id", this.getOne);
   }
 }
 
