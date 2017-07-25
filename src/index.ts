@@ -18,8 +18,8 @@ function normalizePort(val: number | string): number | string | boolean {
   const p: number = typeof val === 'string' ? parseInt(val, 10) : val;
   if (isNaN(p)) {
     return val;
-  } else if (port >= 0) {
-    return port;
+  } else if (val >= 0) {
+    return val;
   } else {
     return false;
   }

@@ -7,9 +7,10 @@
     "start": "DEBUG=server node dist/index.js",
     "compile": "npm run lint; rm -rf dist/; tsc -p .",
     "watch": "tsc -w -p .",
-    "dev": "tsc && concurrently 'tsc -w' DEBUG=server 'nodemon dist/index.js'",
+    "dev": "tsc-watch --outDir ./dist --onSuccess 'node ./dist/index.js'",
     "test": "mocha --require source-map-support/register --recursive dist/test",
     "lint": "tslint --project tsconfig.json",
+    "lint-fix": "tslint --fix --project tsconfig.json",
     "pretty": "prettier --single-quote --trailing-comma all --write src/**/*.ts"
   },
   "keywords": [],
@@ -39,7 +40,8 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "prettier": "^1.5.3",
-    "tslint": "^5.1.0",
-    "typescript": "^2.2.2"
+    "tsc-watch": "^1.0.7",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2"
   }
 }
