@@ -4,10 +4,9 @@
   "description": "sample typescript project",
   "main": "",
   "scripts": {
-    "start": "DEBUG=server node dist/index.js",
+    "start": "node dist/index.js",
     "compile": "npm run lint; rm -rf dist/; tsc -p .",
     "watch": "tsc -w -p .",
-    "dev": "tsc-watch --outDir ./dist --onSuccess 'node ./dist/index.js'",
     "test": "mocha --require source-map-support/register --recursive dist/test",
     "lint": "tslint --project tsconfig.json",
     "lint-fix": "tslint --fix --project tsconfig.json",
@@ -17,13 +16,11 @@
   "author": "gerlacdt",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "body-parser": "^1.15.2",
-    "debug": "^2.2.0",
-    "express": "^4.15.2",
-    "immutable": "^3.8.1",
-    "morgan": "^1.7.0",
-    "rxjs": "^5.3.0"
+    "bunyan": "^1.8.12",
+    "express": "^4.16.3",
+    "request": "^2.85.0",
+    "source-map-support": "^0.5.5"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.33",
@@ -35,13 +32,11 @@
     "@types/morgan": "^1.7.32",
     "@types/node": "^7.0.13",
     "chai": "^3.5.0",
-    "chai-http": "^3.0.0",
-    "concurrently": "^3.1.0",
     "mocha": "^3.2.0",
-    "nodemon": "^1.11.0",
-    "prettier": "^1.11.1",
+    "prettier": "^1.12.1",
+    "supertest": "^3.0.0",
     "tsc-watch": "^1.0.7",
     "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
+    "typescript": "^2.8.3"
   }
 }
