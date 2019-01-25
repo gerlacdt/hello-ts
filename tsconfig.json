@@ -7,7 +7,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "skipLibCheck": true,
     "moduleResolution": "node",
     "outDir": "./dist"
   },
