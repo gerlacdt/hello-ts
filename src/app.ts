@@ -46,7 +46,7 @@ function errorHandler(
   res: express.Response,
   _next: express.NextFunction,
 ) {
-  logger.error('ERROR ${err.message}');
+  logger.error(`ERROR ${err.message}`);
   res.status(500).json({ err: err.message });
 }
 
