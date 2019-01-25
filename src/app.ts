@@ -1,6 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { logger } from './logger';
+import { startProfile } from './profiler';
 
 const app: express.Application = express();
 app.use(bodyParser.json());
@@ -40,24 +41,34 @@ function fibHandler(
   }
 }
 
+async function profileHandler(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction,
+) {
+  try {
+    const seconds = getInt(req.query.seconds);
+    const profile = await startProfile(seconds);
+    res.status(200).send(JSON.stringify(profile));
+  } catch (err) {
+    next(err);
+  }
+}
+
 function errorHandler(
   err: Error,
   _req: express.Request,
   res: express.Response,
   _next: express.NextFunction,
 ) {
-  logger.error('ERROR ${err.message}');
+  logger.error(`ERROR ${err.message}`);
   res.status(500).json({ err: err.message });
 }
 
 const router = express.Router();
-router.get('/hello', (_req, res, _next) => {
-  res.json({
-    message: 'Hello World!',
-  });
 
-  router.get('/fib', fibHandler);
-});
+router.get('/fib', fibHandler);
+router.get('/profile', profileHandler);
 
 app.use('/', router);
 
