@@ -5,14 +5,6 @@ import { app } from '../App';
 const expect = chai.expect;
 
 describe('routes', () => {
-  it('hello route', async () => {
-    const response = await request(app)
-      .get('/hello')
-      .expect(200);
-    const body = response.body;
-    expect(body.message).to.eql('Hello World!');
-  });
-
   it('fib route', async () => {
     const response = await request(app)
       .get('/fib')
